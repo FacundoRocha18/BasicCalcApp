@@ -14,7 +14,7 @@ function getOperator(string) {
     const op = string.indexOf(' ') + 1;
 
     const operator = string.substring(op, op + 1);
-    
+
     let num1 = parseFloat(string.substring(0, op - 1));
 
     let num2 = parseFloat(string.substring(op + 1));
@@ -24,7 +24,7 @@ function getOperator(string) {
 
 /* This function validates and sums two numbers */
 function sum(num1, num2) {
-    
+
     let sum = 0;
 
     if (num1 == null || num2 == null) {
@@ -171,57 +171,64 @@ function compareOperators(op, num1, num2) {
 
 /* This function evaluates which button is being pressed and manages the functionality
 of each option such as clean, erase and the different math operations  */
-function options(string, buttons){
+function options(string, buttons) {
 
     buttons.map(button => {
-    
+
 
         button.addEventListener('click', (e) => {
             switch (e.target.innerText) {
-                case 'AC':
+
+                case 'C':
                     display.value = '';
                     display.classList.remove('red-text');
                     break;
-    
+
                 case 'backspace':
                     if (display.value) {
                         display.value = display.value.slice(0, -1);
                     }
                     break;
-    
+
+                case 'retroceso':
+                    if (display.value) {
+                        display.value = display.value.slice(0, -1);
+                    }
+                    break;
+
                 case '+':
                     display.value += ' + ';
-    
+
                     break;
-    
+
                 case '-':
                     display.value += ' - ';
-    
+
                     break;
-    
+
                 case 'x':
                     display.value += ' x ';
-    
+
                     break;
-    
+
                 case '/':
                     display.value += ' / ';
-    
+
                     break;
-    
+
                 case '%':
                     display.value += ' % ';
-    
+
                     break;
-    
+
                 case '=':
                     string = display.value;
                     display.value = string + ' = ' + getOperator(string);
                     break;
-    
+
                 default:
                     display.value += e.target.innerText;
-    
+
             }
 
         });
