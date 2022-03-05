@@ -35,7 +35,7 @@ body {
     width: 90%;
     height: fit-content;
     background-color: var(--item-bg-main-color);
-    margin: 20rem auto;
+    margin: 15rem auto;
     padding: 2rem 0;
     border-radius: 1.5rem;
 }
