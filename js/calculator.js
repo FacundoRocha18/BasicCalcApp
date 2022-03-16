@@ -20,7 +20,7 @@ export default class Calculator {
 
             for (i = 0; i <= counter; i++) {
 
-                nums = parseFloat(string.match(numRegexp));
+                nums = string.match(numRegexp);
                 operators = string.match(opRegexp);
 
             }
@@ -29,7 +29,35 @@ export default class Calculator {
 
         console.log(operators, nums);
 
+        
+
         return this.compareOperators(operators, nums);
+    }
+
+    acumular(acumulado, numbers, operators) {
+
+        acumulado = 0;
+
+        for ( let i = 0; i <= numbers.length; i++ ) {
+
+            if ( operators.length == 2 ) {
+                
+                if ( operators.indexOf('+') < operators.indexOf('-') ) {
+
+                    acumulado = parseFloat(numbers[0]);
+                    acumulado = acumulado + parseFloat(numbers[1]);
+                    return acumulado - parseFloat(numbers[2]);
+    
+                } else if (  operators.indexOf('+') > operators.indexOf('-') ) {
+    
+                    acumulado = parseFloat(numbers[0]);
+                    acumulado -= parseFloat(numbers[1]); 
+                    return acumulado + parseFloat(numbers[2]);
+    
+                }
+            }
+            
+        }
     }
 
     /* This function compares the parameter "op" from the function getOperator with a pre-defined
@@ -41,15 +69,22 @@ export default class Calculator {
 
             case '+':
 
-                let sumValue = this.sum(nums);
+                /* let sumValue = this.sum(nums);
                 console.log(sumValue);
-                if (!isNaN(sumValue)) return sumValue;
-
+                if (!isNaN(sumValue)) return sumValue; */
+                var resultado = 0;
+                resultado = this.acumular(resultado, nums, operators);
+                alert(resultado);
+                if (!isNaN(resultado) || resultado != undefined ) return resultado;
                 break;
             case '-':
 
-                let subtractionValue = this.subtraction(num1, num2);
-                if (!isNaN(subtractionValue)) return subtractionValue;
+                /* let subtractionValue = this.subtraction(num1, num2);
+                if (!isNaN(subtractionValue)) return subtractionValue; */
+                var resultado = 0;
+                resultado = this.acumular(resultado, nums, operators);
+                alert(resultado);
+                if (!isNaN(resultado) || resultado != undefined ) return resultado;
 
                 break;
             case 'x':
@@ -85,7 +120,7 @@ export default class Calculator {
                 display.classList.add('red-text');
                 throw display.value = 'Please enter a valid number.';
             } */
-            alert(nums[0] + nums[1]);
+            alert(parseFloat(nums[0]) + parseFloat(nums[1]));
             resultado = parseFloat(nums[0]) + parseFloat(nums[1]);
         }
         
