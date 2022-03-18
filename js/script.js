@@ -44,7 +44,6 @@ function options(string, buttons) {
 
                     string = string.replace('x', '*');
                     string = string.replace('÷', '/');
-                    alert(string);
                     try {
                         if (charRegExp.test(string) === true) {
 
