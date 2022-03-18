@@ -12,6 +12,10 @@ html {
 
 /* Globals */
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
 :root {
     --body-bg-main-color: #E5E7E9;
     --item-bg-main-color: #D0D3D4;
@@ -57,7 +61,7 @@ body {
 }
 
 .title h1 {
-    font-size: 2.9rem;
+    font-size: 3.5rem;
     font-weight: var(--semi-bold);
 }
 
@@ -146,6 +150,11 @@ body {
     color: var(--secondary-text-color);
 }
 
+.buttons-wrapper .special-buttons span:hover {
+    cursor: pointer;
+    transition: all .8s;
+}
+
 .buttons-wrapper .button-item .clear {
     font-weight: var(--semi-bold);
 }
@@ -155,7 +164,13 @@ body {
 }
 
 .buttons-wrapper .button-item:hover{
+    cursor: pointer;
     background-color: #9e9e9e42;
+    transition: all .8s;
+}
+
+.buttons-wrapper .button-item span:hover {
+    cursor: pointer;
     transition: all .8s;
 }
 

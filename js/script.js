@@ -7,7 +7,7 @@ let string = '';
 const calculator = new Calculator(display, string);
 
 /* This function evaluates which button is being pressed and manages the functionality
-of each option such as clean, erase and the different math operations  */
+of each option such as clean, erase and the different math operations */
 
 function options(string, buttons) {
 
