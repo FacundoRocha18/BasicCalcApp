@@ -1,3 +1,7 @@
+import { create, all } from 'mathjs.js';
+
+const math = create(all,  {});
+
 
 export default class Calculator {
 
@@ -8,10 +12,11 @@ export default class Calculator {
     }
 
     /* Numbers asignations & operators finding and asignations */
-    getOperators(string, counter) {
+    getResult(string, counter) {
 
         const opRegexp = /[x+/-]+/g;
         const numRegexp = /[0-9]{1,}/g;
+        const op = ['x', '+', '/', '-'];
         let operators, nums;
 
         if (counter > 0) {
@@ -24,24 +29,35 @@ export default class Calculator {
                 operators = string.match(opRegexp);
 
             }
+            for (i = 0; i <= op.length; i++) {
 
+                if (!operators.includes(op[i]) || isNaN(nums[i])) {
+
+                    throw alert('The text you entered does not contain numbers and operators');
+
+                } else {
+                    return math.evaluate(string).toString();
+                }
+                
+            }
+
+            
         }
 
-        console.log(operators, nums);
+        /* console.log(operators, nums);
 
         
 
-        return this.compareOperators(operators, nums);
+        return this.compareOperators(operators, nums); */
     }
 
-    acumular(acumulado, numbers, operators) {
+    /* acumular(acumulado, numbers, operators) {
 
         acumulado = 0;
 
         for ( let i = 0; i <= numbers.length; i++ ) {
 
             if ( operators.length == 2 ) {
-                
                 if ( operators.indexOf('+') < operators.indexOf('-') ) {
 
                     acumulado = parseFloat(numbers[0]);
@@ -58,12 +74,12 @@ export default class Calculator {
             }
             
         }
-    }
+    } */
 
     /* This function compares the parameter "op" from the function getOperator with a pre-defined
     list of math operators, depending on which operator of the list matches with the op parameter,
     the switch structure calls the corresponding function for the math operation that the user wants to do. */
-    compareOperators(operators, nums) {
+    /* compareOperators(operators, nums) {
 
         switch (operators[0]) {
 
@@ -71,7 +87,7 @@ export default class Calculator {
 
                 /* let sumValue = this.sum(nums);
                 console.log(sumValue);
-                if (!isNaN(sumValue)) return sumValue; */
+                if (!isNaN(sumValue)) return sumValue;
                 var resultado = 0;
                 resultado = this.acumular(resultado, nums, operators);
                 alert(resultado);
@@ -80,7 +96,7 @@ export default class Calculator {
             case '-':
 
                 /* let subtractionValue = this.subtraction(num1, num2);
-                if (!isNaN(subtractionValue)) return subtractionValue; */
+                if (!isNaN(subtractionValue)) return subtractionValue;
                 var resultado = 0;
                 resultado = this.acumular(resultado, nums, operators);
                 alert(resultado);
@@ -107,7 +123,7 @@ export default class Calculator {
                 break;
         }
 
-    }
+    } */
 
     /* This function validates and sums two numbers */
     sum(nums) {

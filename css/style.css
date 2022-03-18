@@ -99,8 +99,9 @@ body {
     width: 100%;
 }
 
-.par-button {
+.par-btn {
     width: 50%;
+    padding: 1rem;
 }
 
 .buttons-wrapper .button-item {
@@ -143,6 +144,16 @@ body {
 
 .buttons-wrapper .special-buttons:hover span {
     color: #d4d4d4;
+    transition: all .8s;
+}
+
+.buttons-wrapper .no-hover:hover {
+    background-color: transparent;
+}
+
+.buttons-wrapper .no-hover .par-btn:hover {
+    background-color: #9e9e9e42;
+    border-radius: 5rem;
     transition: all .8s;
 }
 
