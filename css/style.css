@@ -78,11 +78,10 @@ body {
 .result-wrapper input {
     border-radius: 1.5rem;
     border: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.100);
     font-weight: var(--medium);
     background-color: transparent;
     width: 100%;
-    padding: .5rem;
+    padding: .5rem 5rem;
     text-align: right;
     min-width: 100%;
     box-sizing: border-box;
@@ -90,7 +89,6 @@ body {
 
 .buttons-wrapper {
     border-radius: 1.5rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.100);
     padding: 1rem;
     min-width: 100%;
     width: fit-content;
@@ -210,6 +208,11 @@ body {
         row-gap: 1rem;
     }
 
+    .buttons-wrapper .button-item {
+        width: 7rem;
+        height: 7rem;
+    }
+
     .buttons-wrapper .button-item:hover{
         cursor: pointer;
         transition: all .8s;
@@ -218,6 +221,7 @@ body {
     .result-wrapper input {
         min-width: 100%;
         margin: 0 auto;
+        padding: .5rem 3rem;
     }
     
 }
