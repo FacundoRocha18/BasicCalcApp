@@ -1,4 +1,4 @@
-import {Calculator} from './calculator.js';
+import Calculator from './calculator.js';
 
 let display = document.getElementById('display');
 let buttons = Array.from(document.getElementsByClassName('button-item'));
@@ -64,7 +64,8 @@ function options(string, buttons) {
 
                 case '=':
                     string = display.value;
-                    display.value = string + ' = ' + calculator.getResult(string, counter);
+                    alert(string);
+                    display.value = string + ' = ' + calculator.getOutcome(string, counter);
                     break;
 
                 default:

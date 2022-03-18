@@ -1,7 +1,3 @@
-import { create, all } from 'mathjs.js';
-
-const math = create(all,  {});
-
 
 export default class Calculator {
 
@@ -12,38 +8,35 @@ export default class Calculator {
     }
 
     /* Numbers asignations & operators finding and asignations */
-    getResult(string, counter) {
+    getOutcome(string, counter) {
 
-        const opRegexp = /[x+/-]+/g;
-        const numRegexp = /[0-9]{1,}/g;
-        const op = ['x', '+', '/', '-'];
-        let operators, nums;
+        const opRegExp = /[*+/-]+/g;
+        const numRegExp = /[0-9]{1,}/g;
+        const charRegExp = /[A-Za-z]+/g;
 
-        if (counter > 0) {
+        /* if (counter > 0) {
 
             let i;
+            let operators, nums;
+
 
             for (i = 0; i <= counter; i++) {
 
-                nums = string.match(numRegexp);
-                operators = string.match(opRegexp);
+                nums = string.match(numRegExp);
+                operators = string.match(opRegExp);
 
-            }
-            for (i = 0; i <= op.length; i++) {
-
-                if (!operators.includes(op[i]) || isNaN(nums[i])) {
-
-                    throw alert('The text you entered does not contain numbers and operators');
-
-                } else {
-                    return math.evaluate(string).toString();
-                }
-                
             }
 
             
-        }
 
+        } */
+        if (charRegExp.test(string) === true) {
+
+            display.classList.add('red-text');
+            return display.value = 'Please enter a valid number.';
+
+        }
+        return new Function('return ' + string + ';')();
         /* console.log(operators, nums);
 
         
@@ -130,7 +123,7 @@ export default class Calculator {
 
         let resultado;
 
-        for ( let i = 0; i <= nums.length; i++ ) {
+        for (let i = 0; i <= nums.length; i++) {
             /* if (nums[i] == null || nums[i] == NaN) {
 
                 display.classList.add('red-text');
@@ -139,7 +132,7 @@ export default class Calculator {
             alert(parseFloat(nums[0]) + parseFloat(nums[1]));
             resultado = parseFloat(nums[0]) + parseFloat(nums[1]);
         }
-        
+
         return resultado;
 
     }
