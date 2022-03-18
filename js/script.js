@@ -37,35 +37,29 @@ function options(string, buttons) {
                     }
                     break;
 
-                case '+':
-                    display.value += ' + ';
-                    counter++;
-                    break;
-
-                case '-':
-                    display.value += ' - ';
-                    counter++;
-                    break;
-
-                case 'x':
-                    display.value += ' * ';
-                    counter++;
-                    break;
-
-                case '÷':
-                    display.value += ' / ';
-                    counter++;
-                    break;
-
-                case '%':
-                    display.value += ' % ';
-                    counter++;
-                    break;
-
                 case '=':
                     string = display.value;
+
+                    const charRegExp = /[A-Za-z]+/g;
+
+                    string = string.replace('x', '*');
+                    string = string.replace('÷', '/');
                     alert(string);
-                    display.value = string + ' = ' + calculator.getOutcome(string, counter);
+                    try {
+                        if (charRegExp.test(string) === true) {
+
+                            display.classList.add('red-text');
+                            throw display.value = 'Please enter a valid number.';
+                        }
+
+                        let outcome = calculator.getOutcome(string, counter);
+                        string = string.replace('*', 'x');
+                        string = string.replace('/', '÷');
+                        display.value = string + ' = ' + outcome;
+                    } catch {
+                        display.classList.add('red-text');
+                        display.value = 'Error! You can´t use more than one operator without a number';
+                    }
                     break;
 
                 default:
